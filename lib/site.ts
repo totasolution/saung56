@@ -2,13 +2,13 @@
 export const site = {
   name: 'Saung56',
   legalName: 'Saung56 Landscaping',
-  url: 'https://saung56.com',
+  url: 'https://saunglandscaping.com',
   tagline: 'Jasa Landscaping & Taman di Batam',
   description:
     'Saung56 melayani desain, pembuatan, dan perawatan taman untuk rumah, kantor, dan hotel di Batam. Vertical garden, rumput, kolam, dan hardscape. Survei gratis.',
-  whatsapp: '6281200000000',
-  phoneDisplay: '+62 812-0000-0000',
-  email: 'halo@saung56.com',
+  whatsapp: '6281372474444',
+  phoneDisplay: '+62 813-7247-4444',
+  email: 'admin@saunglandscaping.com',
   address: {
     street: 'Jl. Contoh No. 56',
     city: 'Batam',
