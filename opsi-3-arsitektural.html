@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saung56 — Landscape Studio Batam</title>
+<meta name="description" content="Saung56 — studio landscape architecture di Batam.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --bg: #f4f5f0;
+    --paper: #ffffff;
+    --sage: #9aae94;
+    --sage-light: #dfe6da;
+    --olive: #4d5e3c;
+    --deep: #232b20;
+    --muted: #6d7568;
+    --line: #d6dbd1;
+    --max: 1280px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "DM Sans", system-ui, sans-serif; color: var(--deep); background: var(--bg); line-height: 1.6; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: "DM Serif Display", Georgia, serif; font-weight: 400; line-height: 1.05; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 24px; }
+  .label { font-size: 12px; letter-spacing: .2em; text-transform: uppercase; color: var(--muted); display: flex; align-items: center; gap: 12px; }
+  .label::before { content: ""; width: 28px; height: 1px; background: currentColor; }
+  .link { display: inline-flex; gap: 10px; align-items: center; font-weight: 500; border-bottom: 1px solid var(--deep); padding-bottom: 4px; }
+  .link:hover { color: var(--olive); border-color: var(--olive); }
+  .btn { display: inline-block; background: var(--deep); color: var(--bg); padding: 16px 30px; font-weight: 500; font-size: 15px; transition: background .2s; }
+  .btn:hover { background: var(--olive); }
+
+  /* Nav */
+  header { border-bottom: 1px solid var(--line); background: var(--bg); position: sticky; top: 0; z-index: 50; }
+  .nav { display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; height: 72px; }
+  .menu { display: flex; gap: 28px; font-size: 14px; }
+  .menu a:hover { color: var(--olive); }
+  .logo { font-family: "DM Serif Display", serif; font-size: 26px; text-align: center; }
+  .logo i { color: var(--olive); }
+  .nav-right { display: flex; justify-content: flex-end; align-items: center; gap: 20px; font-size: 14px; }
+  .burger { display: none; background: none; border: 0; cursor: pointer; justify-self: end; }
+
+  /* Hero */
+  .hero { padding: 64px 0 0; }
+  .hero-top { display: grid; grid-template-columns: 1.4fr 1fr; gap: 48px; align-items: end; margin-bottom: 48px; }
+  .hero h1 { font-size: clamp(48px, 8.5vw, 124px); letter-spacing: -.02em; }
+  .hero h1 i { color: var(--olive); }
+  .hero-side p { color: var(--muted); font-size: 17px; margin-bottom: 24px; max-width: 400px; }
+  .hero-img { position: relative; height: clamp(320px, 62vh, 640px); overflow: hidden; }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; }
+  .hero-img .tag { position: absolute; left: 24px; bottom: 24px; background: var(--bg); padding: 14px 20px; font-size: 13px; }
+  .hero-img .tag b { display: block; font-size: 15px; }
+
+  /* Intro strip */
+  .strip { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--line); }
+  .strip div { padding: 36px 24px; border-right: 1px solid var(--line); }
+  .strip div:last-child { border-right: 0; }
+  .strip b { font-family: "DM Serif Display", serif; font-size: 44px; font-weight: 400; display: block; line-height: 1; }
+  .strip span { color: var(--muted); font-size: 14px; }
+
+  section { padding: 120px 0; }
+  .sec-head { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; margin-bottom: 64px; align-items: end; }
+  .sec-head h2 { font-size: clamp(36px, 5vw, 64px); margin-top: 18px; }
+  .sec-head p { color: var(--muted); font-size: 17px; max-width: 460px; }
+
+  /* Philosophy */
+  .philo { display: grid; grid-template-columns: 1fr 1.2fr; gap: 80px; align-items: center; }
+  .philo img { aspect-ratio: 3/4; object-fit: cover; width: 100%; }
+  .philo blockquote { font-family: "DM Serif Display", serif; font-size: clamp(28px, 3.4vw, 44px); line-height: 1.2; margin: 24px 0 32px; }
+  .philo blockquote i { color: var(--olive); }
+  .philo p { color: var(--muted); margin-bottom: 18px; max-width: 520px; }
+
+  /* Services list */
+  .services { background: var(--deep); color: var(--bg); }
+  .services .label, .services .sec-head p { color: var(--sage); }
+  .svc-list { border-top: 1px solid rgba(255,255,255,.15); }
+  .svc-row { display: grid; grid-template-columns: 80px 1.2fr 1.5fr 40px; gap: 24px; align-items: center; padding: 32px 0; border-bottom: 1px solid rgba(255,255,255,.15); transition: padding .3s, color .3s; cursor: default; }
+  .svc-row:hover { padding-left: 16px; color: var(--sage); }
+  .svc-row .n { color: var(--sage); font-size: 14px; }
+  .svc-row h3 { font-size: clamp(26px, 3vw, 38px); }
+  .svc-row p { color: rgba(244,245,240,.65); font-size: 15px; }
+  .svc-row .arr { font-size: 22px; text-align: right; }
+
+  /* Projects */
+  .projects { display: grid; grid-template-columns: repeat(12, 1fr); gap: 24px; }
+  .proj { grid-column: span 6; }
+  .proj.wide { grid-column: span 7; }
+  .proj.narrow { grid-column: span 5; margin-top: 120px; }
+  .proj .img { overflow: hidden; background: var(--sage-light); }
+  .proj img { width: 100%; aspect-ratio: 4/3; object-fit: cover; transition: transform .8s; }
+  .proj.narrow img { aspect-ratio: 4/5; }
+  .proj:hover img { transform: scale(1.04); }
+  .proj .meta { display: flex; justify-content: space-between; padding-top: 16px; }
+  .proj h3 { font-size: 26px; }
+  .proj small { color: var(--muted); font-size: 14px; }
+
+  /* Process */
+  .process { background: var(--sage-light); }
+  .timeline { display: grid; grid-template-columns: repeat(4, 1fr); border-top: 1px solid var(--deep); }
+  .tl { padding: 28px 24px 0 0; position: relative; }
+  .tl::before { content: ""; position: absolute; top: -6px; left: 0; width: 11px; height: 11px; border-radius: 50%; background: var(--deep); }
+  .tl .n { font-size: 13px; color: var(--muted); letter-spacing: .1em; }
+  .tl h3 { font-size: 28px; margin: 10px 0; }
+  .tl p { color: var(--muted); font-size: 15px; }
+
+  /* Contact */
+  .contact { display: grid; grid-template-columns: 1.2fr 1fr; gap: 80px; }
+  .contact h2 { font-size: clamp(44px, 7vw, 96px); margin: 18px 0 32px; }
+  .contact h2 i { color: var(--olive); }
+  .info { display: grid; gap: 28px; align-content: start; padding-top: 56px; }
+  .info div { border-top: 1px solid var(--line); padding-top: 16px; }
+  .info small { color: var(--muted); font-size: 12px; letter-spacing: .15em; text-transform: uppercase; display: block; margin-bottom: 6px; }
+  .info a, .info span { font-size: 20px; }
+
+  footer { border-top: 1px solid var(--line); padding: 32px 0; font-size: 13px; color: var(--muted); }
+  footer .wrap { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 16px; }
+
+  @media (max-width: 980px) {
+    .hero-top, .sec-head, .philo, .contact { grid-template-columns: 1fr; gap: 32px; }
+    .strip { grid-template-columns: 1fr 1fr; }
+    .strip div:nth-child(2) { border-right: 0; }
+    .strip div:nth-child(-n+2) { border-bottom: 1px solid var(--line); }
+    .svc-row { grid-template-columns: 50px 1fr 30px; }
+    .svc-row p { grid-column: 2 / 3; grid-row: 2; }
+    .svc-row .arr { grid-row: 1; grid-column: 3; }
+    .projects .proj, .projects .proj.wide, .projects .proj.narrow { grid-column: span 12; margin-top: 0; }
+    .timeline { grid-template-columns: 1fr 1fr; row-gap: 40px; }
+    .info { padding-top: 0; }
+  }
+  @media (max-width: 760px) {
+    .nav { grid-template-columns: 1fr auto; }
+    .logo { text-align: left; order: -1; }
+    .menu, .nav-right { display: none; }
+    .burger { display: block; }
+    .menu.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--bg); padding: 24px; border-bottom: 1px solid var(--line); font-size: 18px; gap: 18px; }
+    section { padding: 80px 0; }
+    .hero { padding-top: 40px; }
+    .timeline { grid-template-columns: 1fr; border-top: 0; border-left: 1px solid var(--deep); padding-left: 24px; }
+    .tl { padding: 0; }
+    .tl::before { top: 6px; left: -30px; }
+    .strip b { font-size: 34px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap nav">
+    <nav class="menu" id="menu">
+      <a href="#studio">Studio</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#karya">Karya</a>
+      <a href="#proses">Proses</a>
+    </nav>
+    <a href="#" class="logo">Saung<i>56</i></a>
+    <div class="nav-right">
+      <a href="tel:+6281200000000">+62 812-0000-0000</a>
+      <a href="#kontak" class="link">Kontak →</a>
+    </div>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">
+      <svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M3 8h18M3 16h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="hero-top">
+      <h1>Ruang hijau, <i>dirancang</i> dengan tenang.</h1>
+      <div class="hero-side">
+        <p>Saung56 adalah studio landscape di Batam. Kami merancang taman yang menyatu dengan arsitektur, iklim tropis, dan cara Anda hidup.</p>
+        <a href="#karya" class="link">Lihat karya kami →</a>
+      </div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="hero-img">
+      <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=2000&q=75" alt="Rumah modern dengan taman">
+      <div class="tag"><b>Residensi Tepi Laut</b>Nongsa, Batam — 2025</div>
+    </div>
+  </div>
+  <div class="wrap">
+    <div class="strip">
+      <div><b>150+</b><span>Proyek terselesaikan</span></div>
+      <div><b>10</b><span>Tahun berkarya</span></div>
+      <div><b>40k m²</b><span>Lahan dihijaukan</span></div>
+      <div><b>3</b><span>Pulau terlayani</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="studio">
+  <div class="wrap philo">
+    <img src="https://images.unsplash.com/photo-1558293842-c0fd3db86157?w=900&q=75" alt="Lorong tanaman rambat" loading="lazy">
+    <div>
+      <div class="label">Filosofi Studio</div>
+      <blockquote>Taman yang baik tidak hanya dilihat — ia <i>ditinggali</i>.</blockquote>
+      <p>Nama Saung56 berasal dari saung: tempat berteduh sederhana di tengah kebun. Semangat itu kami bawa ke setiap proyek — ruang luar yang teduh, fungsional, dan mudah dirawat.</p>
+      <p>Setiap desain dimulai dari membaca lahan: arah matahari, aliran air hujan, kondisi tanah, dan angin laut khas Batam.</p>
+      <a href="#proses" class="link" style="margin-top:12px">Cara kami bekerja →</a>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="layanan">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Layanan</div><h2>Dari sketsa hingga perawatan.</h2></div>
+      <p>Layanan lengkap untuk hunian, properti komersial, hospitality, dan ruang publik.</p>
+    </div>
+    <div class="svc-list">
+      <div class="svc-row"><span class="n">01</span><h3>Desain Landscape</h3><p>Masterplan, gambar kerja, dan visual 3D.</p><span class="arr">↗</span></div>
+      <div class="svc-row"><span class="n">02</span><h3>Konstruksi Taman</h3><p>Softscape & hardscape dikerjakan tim sendiri.</p><span class="arr">↗</span></div>
+      <div class="svc-row"><span class="n">03</span><h3>Vertical & Rooftop</h3><p>Dinding hijau dan taman atap untuk lahan terbatas.</p><span class="arr">↗</span></div>
+      <div class="svc-row"><span class="n">04</span><h3>Water Feature</h3><p>Kolam koi, kolam refleksi, dan air mancur.</p><span class="arr">↗</span></div>
+      <div class="svc-row"><span class="n">05</span><h3>Perawatan Berkala</h3><p>Kontrak perawatan mingguan hingga tahunan.</p><span class="arr">↗</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="karya">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Karya Pilihan</div><h2>Proyek terbaru.</h2></div>
+      <p>Pilihan proyek hunian dan komersial di Batam dan sekitarnya.</p>
+    </div>
+    <div class="projects">
+      <article class="proj wide"><div class="img"><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1200&q=75" alt="Taman depan rumah" loading="lazy"></div><div class="meta"><h3>Rumah Kontur</h3><small>Batam Centre · 2025</small></div></article>
+      <article class="proj narrow"><div class="img"><img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?w=800&q=75" alt="Taman tropis" loading="lazy"></div><div class="meta"><h3>Taman Hutan Kecil</h3><small>Tiban · 2024</small></div></article>
+      <article class="proj narrow" style="margin-top:0"><div class="img"><img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=800&q=75" alt="Taman bunga" loading="lazy"></div><div class="meta"><h3>Jalur Bunga</h3><small>Sekupang · 2024</small></div></article>
+      <article class="proj wide"><div class="img"><img src="https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1200&q=75" alt="Hamparan rumput" loading="lazy"></div><div class="meta"><h3>Lawn Paviliun</h3><small>Nongsa · 2023</small></div></article>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="proses">
+  <div class="wrap">
+    <div class="sec-head">
+      <div><div class="label">Proses</div><h2>Empat tahap, satu tim.</h2></div>
+      <p>Satu tim menangani proyek dari awal sampai serah terima, tanpa lempar tanggung jawab.</p>
+    </div>
+    <div class="timeline">
+      <div class="tl"><span class="n">TAHAP 01</span><h3>Survei</h3><p>Kunjungan lokasi, analisis lahan, dan brief kebutuhan.</p></div>
+      <div class="tl"><span class="n">TAHAP 02</span><h3>Desain</h3><p>Konsep, visual 3D, dan RAB transparan.</p></div>
+      <div class="tl"><span class="n">TAHAP 03</span><h3>Bangun</h3><p>Konstruksi dengan laporan progres berkala.</p></div>
+      <div class="tl"><span class="n">TAHAP 04</span><h3>Rawat</h3><p>Garansi tanaman dan kontrak perawatan.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="kontak">
+  <div class="wrap contact">
+    <div>
+      <div class="label">Kontak</div>
+      <h2>Mari bicara soal <i>taman</i> Anda.</h2>
+      <a href="https://wa.me/6281200000000" class="btn">Jadwalkan Survei →</a>
+    </div>
+    <div class="info">
+      <div><small>WhatsApp</small><a href="https://wa.me/6281200000000">+62 812-0000-0000</a></div>
+      <div><small>Email</small><a href="mailto:halo@saung56.com">halo@saung56.com</a></div>
+      <div><small>Studio & Nursery</small><span>Jl. Contoh No. 56, Batam, Kepulauan Riau</span></div>
+      <div><small>Jam Kerja</small><span>Senin – Sabtu, 08.00 – 17.00</span></div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Saung56 Landscape Studio</span>
+    <span>Instagram · Pinterest · LinkedIn</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').classList.remove('open')));
+</script>
+</body>
+</html>

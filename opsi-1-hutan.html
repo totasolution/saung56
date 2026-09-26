@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Saung56 — Landscaping Batam</title>
+<meta name="description" content="Saung56 — jasa desain, pembuatan, dan perawatan taman di Batam.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,600&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --forest: #14301f;
+    --forest-2: #1d4430;
+    --moss: #3f7a4f;
+    --leaf: #8cbf7a;
+    --cream: #f5f1e6;
+    --sand: #e8e1cf;
+    --ink: #1a221c;
+    --muted: #5b6a5f;
+    --radius: 14px;
+    --max: 1180px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body { font-family: "Inter", system-ui, sans-serif; color: var(--ink); background: var(--cream); line-height: 1.6; }
+  img { display: block; max-width: 100%; }
+  a { color: inherit; text-decoration: none; }
+  h1, h2, h3 { font-family: "Fraunces", Georgia, serif; font-weight: 600; line-height: 1.1; }
+  .wrap { max-width: var(--max); margin: 0 auto; padding: 0 20px; }
+  .eyebrow { font-size: 13px; letter-spacing: .14em; text-transform: uppercase; color: var(--moss); font-weight: 600; }
+  .btn { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 999px; font-weight: 600; font-size: 15px; transition: transform .2s, background .2s; }
+  .btn:hover { transform: translateY(-2px); }
+  .btn-primary { background: var(--leaf); color: var(--forest); }
+  .btn-primary:hover { background: #a3d08f; }
+  .btn-ghost { border: 1.5px solid rgba(255,255,255,.5); color: #fff; }
+
+  /* Nav */
+  header { position: fixed; inset: 0 0 auto 0; z-index: 50; transition: background .3s, box-shadow .3s; }
+  header.scrolled { background: var(--forest); box-shadow: 0 4px 20px rgba(0,0,0,.15); }
+  .nav { display: flex; align-items: center; justify-content: space-between; height: 72px; }
+  .logo { font-family: "Fraunces", serif; font-size: 24px; color: #fff; font-weight: 600; }
+  .logo span { color: var(--leaf); }
+  .menu { display: flex; gap: 32px; color: #fff; font-size: 15px; }
+  .menu a { opacity: .85; }
+  .menu a:hover { opacity: 1; }
+  .nav .btn { padding: 10px 20px; }
+  .burger { display: none; background: none; border: 0; color: #fff; cursor: pointer; }
+
+  /* Hero */
+  .hero { position: relative; min-height: 100vh; display: flex; align-items: flex-end; color: #fff;
+    background: var(--forest) url("https://images.unsplash.com/photo-1558904541-efa843a96f01?w=1800&q=75") center/cover; }
+  .hero::before { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(20,48,31,.35) 0%, rgba(20,48,31,.85) 100%); }
+  .hero .wrap { position: relative; padding-bottom: 96px; padding-top: 140px; }
+  .hero .eyebrow { color: var(--leaf); }
+  .hero h1 { font-size: clamp(40px, 7vw, 84px); max-width: 900px; margin: 16px 0 24px; }
+  .hero h1 em { color: var(--leaf); font-style: italic; }
+  .hero p { font-size: clamp(16px, 2vw, 19px); max-width: 560px; opacity: .9; margin-bottom: 36px; }
+  .hero-cta { display: flex; gap: 14px; flex-wrap: wrap; }
+  .stats { display: grid; grid-template-columns: repeat(3, auto); gap: 48px; margin-top: 64px; padding-top: 32px; border-top: 1px solid rgba(255,255,255,.2); width: fit-content; }
+  .stats b { font-family: "Fraunces", serif; font-size: 36px; display: block; color: var(--leaf); }
+  .stats span { font-size: 14px; opacity: .8; }
+
+  section { padding: 110px 0; }
+  .head { max-width: 640px; margin-bottom: 56px; }
+  .head h2 { font-size: clamp(32px, 4.5vw, 52px); margin-top: 12px; color: var(--forest); }
+  .head p { color: var(--muted); margin-top: 16px; font-size: 17px; }
+
+  /* About */
+  .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 72px; align-items: center; }
+  .about-img { position: relative; }
+  .about-img img { border-radius: var(--radius); aspect-ratio: 4/5; object-fit: cover; width: 100%; }
+  .about-img .badge { position: absolute; bottom: -28px; right: -28px; background: var(--forest); color: #fff; padding: 28px; border-radius: var(--radius); max-width: 220px; }
+  .about-img .badge b { font-family: "Fraunces", serif; font-size: 42px; color: var(--leaf); display: block; line-height: 1; }
+  .checks { list-style: none; margin-top: 28px; display: grid; gap: 14px; }
+  .checks li { display: flex; gap: 12px; align-items: flex-start; }
+  .checks li::before { content: "✓"; flex: none; width: 26px; height: 26px; border-radius: 50%; background: var(--leaf); color: var(--forest); font-weight: 700; display: grid; place-items: center; font-size: 13px; }
+
+  /* Services */
+  .services { background: var(--forest); color: #fff; }
+  .services .head h2 { color: #fff; }
+  .services .head p { color: rgba(255,255,255,.7); }
+  .services .eyebrow { color: var(--leaf); }
+  .svc-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; background: rgba(255,255,255,.12); border-radius: var(--radius); overflow: hidden; }
+  .svc { background: var(--forest); padding: 40px 32px; transition: background .3s; }
+  .svc:hover { background: var(--forest-2); }
+  .svc .num { font-family: "Fraunces", serif; color: var(--leaf); font-size: 15px; }
+  .svc h3 { font-size: 26px; margin: 18px 0 12px; }
+  .svc p { color: rgba(255,255,255,.7); font-size: 15px; }
+
+  /* Portfolio */
+  .gallery { display: grid; grid-template-columns: repeat(4, 1fr); grid-auto-rows: 240px; gap: 16px; }
+  .gallery figure { position: relative; overflow: hidden; border-radius: var(--radius); background: var(--sand); }
+  .gallery figure:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+  .gallery figure:nth-child(4) { grid-column: span 2; }
+  .gallery img { width: 100%; height: 100%; object-fit: cover; transition: transform .6s; }
+  .gallery figure:hover img { transform: scale(1.06); }
+  .gallery figcaption { position: absolute; left: 0; right: 0; bottom: 0; padding: 20px; color: #fff; background: linear-gradient(transparent, rgba(0,0,0,.7)); font-weight: 500; }
+  .gallery figcaption small { display: block; opacity: .75; font-weight: 400; }
+
+  /* Process */
+  .process { background: var(--sand); }
+  .steps { display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px; counter-reset: s; }
+  .step { counter-increment: s; }
+  .step::before { content: "0" counter(s); font-family: "Fraunces", serif; font-size: 56px; color: var(--moss); opacity: .35; display: block; line-height: 1; margin-bottom: 12px; }
+  .step h3 { font-size: 22px; color: var(--forest); margin-bottom: 8px; }
+  .step p { color: var(--muted); font-size: 15px; }
+
+  /* Testimonial */
+  .quote { text-align: center; max-width: 820px; margin: 0 auto; }
+  .quote blockquote { font-family: "Fraunces", serif; font-size: clamp(24px, 3.4vw, 38px); line-height: 1.3; color: var(--forest); }
+  .quote cite { display: block; margin-top: 24px; font-style: normal; color: var(--muted); }
+
+  /* CTA / Contact */
+  .contact { background: var(--forest); color: #fff; border-radius: 24px; padding: 72px; display: grid; grid-template-columns: 1.2fr 1fr; gap: 56px; }
+  .contact h2 { font-size: clamp(32px, 4vw, 48px); }
+  .contact p { opacity: .8; margin: 16px 0 28px; }
+  .contact-list { list-style: none; display: grid; gap: 18px; }
+  .contact-list li { display: flex; gap: 14px; padding: 18px; background: rgba(255,255,255,.06); border-radius: 12px; }
+  .contact-list small { display: block; opacity: .6; font-size: 13px; }
+  .ic { flex: none; width: 40px; height: 40px; border-radius: 10px; background: var(--leaf); color: var(--forest); display: grid; place-items: center; }
+
+  footer { padding: 40px 0; color: var(--muted); font-size: 14px; }
+  footer .wrap { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+
+  .wa-float { position: fixed; right: 20px; bottom: 20px; z-index: 60; width: 58px; height: 58px; border-radius: 50%; background: #25d366; color: #fff; display: grid; place-items: center; box-shadow: 0 8px 24px rgba(0,0,0,.25); }
+
+  @media (max-width: 960px) {
+    .about-grid, .contact { grid-template-columns: 1fr; }
+    .about-img .badge { right: 16px; bottom: 16px; }
+    .svc-grid { grid-template-columns: 1fr 1fr; }
+    .steps { grid-template-columns: 1fr 1fr; }
+    .gallery { grid-template-columns: 1fr 1fr; grid-auto-rows: 200px; }
+    .gallery figure:nth-child(4) { grid-column: span 2; }
+    .contact { padding: 48px 28px; }
+  }
+  @media (max-width: 760px) {
+    .menu, .nav > .btn { display: none; }
+    .burger { display: block; }
+    .menu.open { display: flex; flex-direction: column; position: absolute; top: 72px; left: 0; right: 0; background: var(--forest); padding: 24px 20px; gap: 20px; }
+    section { padding: 72px 0; }
+    .stats { grid-template-columns: repeat(3, 1fr); gap: 20px; width: 100%; }
+    .stats b { font-size: 28px; }
+    .svc-grid, .steps { grid-template-columns: 1fr; }
+    .gallery { grid-template-columns: 1fr; grid-auto-rows: 220px; }
+    .gallery figure:nth-child(n) { grid-column: auto; grid-row: auto; }
+  }
+</style>
+</head>
+<body>
+
+<header id="top">
+  <div class="wrap nav">
+    <a href="#" class="logo">Saung<span>56</span></a>
+    <nav class="menu" id="menu">
+      <a href="#tentang">Tentang</a>
+      <a href="#layanan">Layanan</a>
+      <a href="#portofolio">Portofolio</a>
+      <a href="#proses">Proses</a>
+      <a href="#kontak">Kontak</a>
+    </nav>
+    <a href="#kontak" class="btn btn-primary">Konsultasi Gratis</a>
+    <button class="burger" aria-label="Menu" onclick="document.getElementById('menu').classList.toggle('open')">
+      <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 6h18M3 12h18M3 18h18"/></svg>
+    </button>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div class="eyebrow">Landscaping · Batam, Kepulauan Riau</div>
+    <h1>Membangun taman yang <em>hidup</em> bersama rumah Anda.</h1>
+    <p>Saung56 merancang, membangun, dan merawat taman rumah, kantor, dan kawasan komersial di Batam — dengan tanaman yang cocok untuk iklim tropis pesisir.</p>
+    <div class="hero-cta">
+      <a href="#kontak" class="btn btn-primary">Mulai Proyek →</a>
+      <a href="#portofolio" class="btn btn-ghost">Lihat Portofolio</a>
+    </div>
+    <div class="stats">
+      <div><b>150+</b><span>Proyek selesai</span></div>
+      <div><b>10</b><span>Tahun pengalaman</span></div>
+      <div><b>98%</b><span>Klien puas</span></div>
+    </div>
+  </div>
+</section>
+
+<section id="tentang">
+  <div class="wrap about-grid">
+    <div class="about-img">
+      <img src="https://images.unsplash.com/photo-1585320806297-9794b3e4eeae?w=900&q=75" alt="Jalan setapak taman dengan bunga" loading="lazy">
+      <div class="badge"><b>10+</b>tahun menghijaukan Batam</div>
+    </div>
+    <div>
+      <div class="eyebrow">Tentang Saung56</div>
+      <h2 style="font-size:clamp(32px,4.5vw,52px);color:var(--forest);margin:12px 0 20px">Tim lokal yang paham tanah dan cuaca Batam.</h2>
+      <p style="color:var(--muted);font-size:17px">Berawal dari sebuah saung kecil penuh tanaman, Saung56 tumbuh menjadi tim landscaping yang menangani proyek dari halaman rumah hingga area perkantoran. Kami memilih tanaman yang tahan panas, angin laut, dan hujan tropis — agar taman Anda tetap indah bertahun-tahun.</p>
+      <ul class="checks">
+        <li>Desain 3D sebelum pengerjaan dimulai</li>
+        <li>Garansi tanaman hidup hingga 30 hari</li>
+        <li>Paket perawatan rutin bulanan</li>
+        <li>Melayani seluruh Batam, Bintan, dan Karimun</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="services" id="layanan">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Layanan</div>
+      <h2>Semua kebutuhan taman, satu tim.</h2>
+      <p>Dari konsep sampai perawatan, kami tangani setiap tahap.</p>
+    </div>
+    <div class="svc-grid">
+      <div class="svc"><div class="num">01</div><h3>Desain Taman</h3><p>Konsep, gambar kerja, dan visual 3D sesuai gaya dan anggaran Anda.</p></div>
+      <div class="svc"><div class="num">02</div><h3>Pembuatan Taman</h3><p>Pengerjaan taman rumah, kantor, hotel, dan fasilitas umum.</p></div>
+      <div class="svc"><div class="num">03</div><h3>Vertical Garden</h3><p>Dinding hijau untuk lahan sempit, fasad, dan interior.</p></div>
+      <div class="svc"><div class="num">04</div><h3>Rumput & Tanaman</h3><p>Suplai rumput gajah mini, jepang, dan tanaman hias berkualitas.</p></div>
+      <div class="svc"><div class="num">05</div><h3>Hardscape & Kolam</h3><p>Jalan setapak, batu alam, gazebo, kolam ikan, dan air mancur.</p></div>
+      <div class="svc"><div class="num">06</div><h3>Perawatan Rutin</h3><p>Pemangkasan, pemupukan, dan pengendalian hama terjadwal.</p></div>
+    </div>
+  </div>
+</section>
+
+<section id="portofolio">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Portofolio</div>
+      <h2>Beberapa taman yang kami bangun.</h2>
+    </div>
+    <div class="gallery">
+      <figure><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?w=1000&q=75" alt="Taman rumah modern" loading="lazy"><figcaption>Taman Rumah Modern<small>Batam Centre</small></figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1598902108854-10e335adac99?w=600&q=75" alt="Taman tropis" loading="lazy"><figcaption>Taman Tropis<small>Nongsa</small></figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1558293842-c0fd3db86157?w=600&q=75" alt="Lorong tanaman rambat" loading="lazy"><figcaption>Pergola Bunga<small>Sekupang</small></figcaption></figure>
+      <figure><img src="https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?w=1000&q=75" alt="Taman depan rumah" loading="lazy"><figcaption>Front Yard Minimalis<small>Batu Aji</small></figcaption></figure>
+    </div>
+  </div>
+</section>
+
+<section class="process" id="proses">
+  <div class="wrap">
+    <div class="head">
+      <div class="eyebrow">Cara Kerja</div>
+      <h2>Empat langkah menuju taman impian.</h2>
+    </div>
+    <div class="steps">
+      <div class="step"><h3>Konsultasi</h3><p>Survei lokasi gratis dan diskusi kebutuhan Anda.</p></div>
+      <div class="step"><h3>Desain</h3><p>Gambar konsep 3D dan rincian biaya transparan.</p></div>
+      <div class="step"><h3>Pengerjaan</h3><p>Tim kami membangun sesuai jadwal yang disepakati.</p></div>
+      <div class="step"><h3>Perawatan</h3><p>Garansi tanaman dan opsi perawatan berkala.</p></div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap quote">
+    <div class="eyebrow" style="margin-bottom:20px">Kata Klien</div>
+    <blockquote>“Halaman kami yang tadinya gersang sekarang jadi tempat favorit keluarga. Timnya rapi, tepat waktu, dan sangat paham tanaman.”</blockquote>
+    <cite>— Ibu Rina, Perumahan Citra Batam</cite>
+  </div>
+</section>
+
+<section id="kontak" style="padding-top:0">
+  <div class="wrap">
+    <div class="contact">
+      <div>
+        <div class="eyebrow" style="color:var(--leaf)">Kontak</div>
+        <h2 style="margin-top:12px">Siap menghijaukan ruang Anda?</h2>
+        <p>Hubungi kami untuk survei lokasi dan konsultasi desain tanpa biaya.</p>
+        <a href="https://wa.me/6281200000000" class="btn btn-primary">Chat WhatsApp →</a>
+      </div>
+      <ul class="contact-list">
+        <li><div class="ic">☎</div><div><small>Telepon / WhatsApp</small>+62 812-0000-0000</div></li>
+        <li><div class="ic">✉</div><div><small>Email</small>halo@saung56.com</div></li>
+        <li><div class="ic">⌂</div><div><small>Workshop & Nursery</small>Jl. Contoh No. 56, Batam</div></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>© 2026 Saung56 Landscaping. Batam, Kepulauan Riau.</span>
+    <span>Instagram · Facebook · TikTok</span>
+  </div>
+</footer>
+
+<a href="https://wa.me/6281200000000" class="wa-float" aria-label="WhatsApp">
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M17.5 14.4c-.3-.1-1.7-.8-2-.9-.3-.1-.5-.1-.7.1-.2.3-.8.9-.9 1.1-.2.2-.3.2-.6.1-.3-.1-1.2-.5-2.3-1.4-.9-.8-1.4-1.7-1.6-2-.2-.3 0-.5.1-.6l.4-.5c.1-.2.2-.3.3-.5.1-.2 0-.4 0-.5l-.9-2.2c-.2-.6-.5-.5-.7-.5h-.6c-.2 0-.5.1-.8.4-.3.3-1 1-1 2.4s1 2.8 1.2 3c.1.2 2 3.1 4.9 4.3 2.4.9 2.9.8 3.4.7.5-.1 1.7-.7 2-1.4.2-.7.2-1.3.2-1.4-.1-.1-.3-.2-.6-.3zM12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2z"/></svg>
+</a>
+
+<script>
+  const h = document.getElementById('top');
+  const onScroll = () => h.classList.toggle('scrolled', scrollY > 40);
+  addEventListener('scroll', onScroll); onScroll();
+  document.querySelectorAll('#menu a').forEach(a => a.addEventListener('click', () => document.getElementById('menu').classList.remove('open')));
+</script>
+</body>
+</html>
